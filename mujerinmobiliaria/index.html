@@ -111,293 +111,73 @@
               </h3>
 
               <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >1. Nombre completo:</label
-                >
+                <label class="block font-semibold text-edblue mb-[8px]">
+                  1. Nombre completo:
+                </label>
                 <input
                   type="text"
                   name="nombre"
-                  placeholder="Tu nombre"
-                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
+                  placeholder="Ingresa tu nombre completo"
+                  minlength="3"
                   required
+                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
                 />
               </div>
 
               <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >2. ¿Eres afiliado o asociado de AMPI Riviera Nayarit?</label
-                >
-                <div class="space-y-[10px]">
-                  <label
-                    ><input
-                      type="radio"
-                      name="tipo_afiliacion"
-                      value="Afiliado"
-                    />
-                    Afiliado</label
-                  ><br />
-                  <label
-                    ><input
-                      type="radio"
-                      name="tipo_afiliacion"
-                      value="Asociado"
-                    />
-                    Asociado</label
-                  ><br />
-                  <label
-                    ><input type="radio" name="tipo_afiliacion" value="Otro" />
-                    Otro:</label
-                  >
-                  <input
-                    type="text"
-                    name="tipo_otro"
-                    placeholder="Especificar"
-                    class="w-full border border-[#ECECEC] h-[40px] px-[12px] rounded-[4px]"
-                  />
-                </div>
-              </div>
-
-              <!-- 📢 Comunicación -->
-              <h3 class="text-edblue text-[24px] font-semibold">
-                Comunicación del evento
-              </h3>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >1. ¿Cómo calificarías la comunicación previa al
-                  evento?</label
-                >
-                <select
-                  name="comunicacion_calidad"
+                <label class="block font-semibold text-edblue mb-[8px]">
+                  2. Teléfono:
+                </label>
+                <input
+                  type="tel"
+                  name="telefono"
+                  placeholder="Ingresa tu número celular"
+                  pattern="[0-9]{10}"
+                  maxlength="10"
+                  required
                   class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                >
-                  <option value="">Selecciona</option>
-                  <option>Excelente</option>
-                  <option>Buena</option>
-                  <option>Regular</option>
-                  <option>Mala</option>
-                  <option>Muy mala</option>
-                </select>
+                />
               </div>
 
               <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >2. ¿Recibiste la información con suficiente
-                  anticipación?</label
-                >
-                <label
-                  ><input type="radio" name="anticipo" value="Sí" /> Sí</label
-                ><br />
-                <label
-                  ><input type="radio" name="anticipo" value="No" /> No</label
-                >
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >3. ¿A través de qué canal te enteraste del evento?</label
-                >
-                <div class="space-y-[10px]">
-                  <label
-                    ><input type="radio" name="canal" value="WhatsApp" />
-                    WhatsApp</label
-                  ><br />
-                  <label
-                    ><input type="radio" name="canal" value="Correo" /> Correo
-                    electrónico</label
-                  ><br />
-                  <label
-                    ><input type="radio" name="canal" value="Redes" /> Redes
-                    sociales</label
-                  ><br />
-                  <label
-                    ><input type="radio" name="canal" value="Otro" />
-                    Otro:</label
-                  >
-                  <input
-                    type="text"
-                    name="canal_otro"
-                    placeholder="Especificar"
-                    class="w-full border border-[#ECECEC] h-[40px] px-[12px] rounded-[4px]"
-                  />
-                </div>
-              </div>
-
-              <!-- 🧩 Organización -->
-              <h3 class="text-edblue text-[24px] font-semibold">
-                Organización del evento
-              </h3>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >1. ¿Cómo calificarías la organización general del
-                  evento?</label
-                >
-                <select
-                  name="organizacion"
+                <label class="block font-semibold text-edblue mb-[8px]">
+                  3. Correo electrónico:
+                </label>
+                <input
+                  type="email"
+                  name="correo"
+                  placeholder="Ingresa tu correo electrónico"
+                  required
                   class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                >
-                  <option value="">Selecciona</option>
-                  <option>Excelente</option>
-                  <option>Buena</option>
-                  <option>Regular</option>
-                  <option>Mala</option>
-                  <option>Muy mala</option>
-                </select>
+                />
               </div>
 
               <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >2. ¿La sede y el horario te parecieron adecuados?</label
-                >
-                <label
-                  ><input type="radio" name="sede_horario" value="Sí" />
-                  Sí</label
-                ><br />
-                <label
-                  ><input type="radio" name="sede_horario" value="No" />
-                  No</label
-                >
+                <label class="block font-semibold text-edblue mb-[8px]">
+                  4. Agencia:
+                </label>
                 <input
                   type="text"
-                  name="comentarios_sede"
-                  placeholder="Comentarios"
-                  class="w-full border border-[#ECECEC] h-[40px] px-[12px] rounded-[4px] mt-[8px]"
+                  name="agencia"
+                  placeholder="Nombre de tu agencia"
+                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
                 />
               </div>
 
               <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >3. ¿Cómo calificarías la logística (registro, tiempos,
-                  atención)?</label
-                >
+                <label class="block font-semibold text-edblue mb-[8px]">
+                  5. Tipo de participante:
+                </label>
                 <select
-                  name="logistica"
+                  name="perfil"
+                  required
                   class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
                 >
-                  <option value="">Selecciona</option>
-                  <option>Excelente</option>
-                  <option>Buena</option>
-                  <option>Regular</option>
-                  <option>Mala</option>
-                  <option>Muy mala</option>
+                  <option value="">Selecciona tu perfil</option>
+                  <option value="Afiliado">Afiliado</option>
+                  <option value="Independiente">Independiente</option>
+                  <option value="Otro">Otro</option>
                 </select>
-              </div>
-
-              <!-- 🎙 Contenido -->
-              <h3 class="text-edblue text-[24px] font-semibold">
-                Contenido y ponencias
-              </h3>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >1. ¿Qué te pareció la calidad de las ponencias?</label
-                >
-                <select
-                  name="ponencias"
-                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                >
-                  <option value="">Selecciona</option>
-                  <option>Excelente</option>
-                  <option>Buena</option>
-                  <option>Regular</option>
-                  <option>Mala</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >2. ¿La información presentada fue relevante para ti?</label
-                >
-                <label
-                  ><input type="radio" name="relevancia" value="Sí" /> Sí</label
-                ><br />
-                <label
-                  ><input type="radio" name="relevancia" value="Parcialmente" />
-                  Parcialmente</label
-                ><br />
-                <label
-                  ><input type="radio" name="relevancia" value="No" /> No</label
-                >
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >3. ¿Qué ponencia te resultó más útil o interesante y por
-                  qué?</label
-                >
-                <textarea
-                  name="ponencia_util"
-                  rows="3"
-                  class="w-full border border-[#ECECEC] px-[20px] py-[10px] rounded-[4px]"
-                ></textarea>
-              </div>
-
-              <!-- 📈 Resultados -->
-              <h3 class="text-edblue text-[24px] font-semibold">
-                Resultados y seguimiento
-              </h3>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >1. ¿Consideras que la junta cumplió con tus
-                  expectativas?</label
-                >
-                <label
-                  ><input type="radio" name="expectativas" value="Totalmente" />
-                  Totalmente</label
-                ><br />
-                <label
-                  ><input
-                    type="radio"
-                    name="expectativas"
-                    value="Parcialmente"
-                  />
-                  Parcialmente</label
-                ><br />
-                <label
-                  ><input type="radio" name="expectativas" value="No" />
-                  No</label
-                >
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >2. ¿Qué aspectos destacarías del evento?</label
-                >
-                <textarea
-                  name="aspectos_destacados"
-                  rows="3"
-                  class="w-full border border-[#ECECEC] px-[20px] py-[10px] rounded-[4px]"
-                ></textarea>
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >3. ¿Qué podríamos mejorar para próximas ediciones?</label
-                >
-                <textarea
-                  name="mejoras"
-                  rows="3"
-                  class="w-full border border-[#ECECEC] px-[20px] py-[10px] rounded-[4px]"
-                ></textarea>
-              </div>
-
-              <!-- ✍️ Comentarios -->
-              <h3 class="text-edblue text-[24px] font-semibold">
-                Comentarios adicionales
-              </h3>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]"
-                  >¿Deseas compartir algún comentario o sugerencia
-                  adicional?</label
-                >
-                <textarea
-                  name="comentarios_adicionales"
-                  rows="3"
-                  class="w-full border border-[#ECECEC] px-[20px] py-[10px] rounded-[4px]"
-                ></textarea>
               </div>
 
               <div>
@@ -459,7 +239,10 @@
         >
           <div class="max-w-[370px]">
             <a href="../index-2.html"
-              ><img src="../assets/img/logoampi.png" alt="logo" class="mb-[23px]"
+              ><img
+                src="../assets/img/logoampi.png"
+                alt="logo"
+                class="mb-[23px]"
             /></a>
             <p class="text-[#D9D9D9] mb-[19px]">
               Asociación Mexicana de Profesionales Inmobiliarios Riviera Nayarit
