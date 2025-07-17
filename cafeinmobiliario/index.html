@@ -102,7 +102,7 @@
 
             <form
               id="form-cafe"
-              action="https://script.google.com/macros/s/AKfycbz3iRmrIvbKeH9xsS_yxnOoGw-svkn11IA6IX4UfHM19-rbPJFia70y8DhCh9jtVRkJYQ/exec"
+              action="https://script.google.com/macros/s/AKfycbw4eLngpdVe8DUI45jqrMqNJSw9EERMk78Rsd6UBFYo-4R4GsFyeZ4C-k5gr4H0_4Hgig/exec"
               method="POST"
               class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
             >
@@ -181,14 +181,14 @@
                 </select>
               </div>
 
-              
+
               <div>
                 <label class="block font-semibold text-edblue mb-[8px]">
                   6. ¿Cómo te enteraste del evento?
                 </label>
                 <select
                   name="medio"
-                  id="medio-sabores"
+                  id="medio-cafe"
                   required
                   class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
                 >
@@ -202,26 +202,26 @@
               </div>
               
               <!-- Campo condicional "Especifique" -->
-              <div id="otro-medio-container" style="display: none;">
+              <div id="otro-medio-container-cafe" style="display: none;">
                 <label class="block font-semibold text-edblue mb-[8px] mt-[10px]">
                   Especifica cómo te enteraste:
                 </label>
                 <input
                   type="text"
                   name="medio_otro"
-                  id="medio_otro"
+                  id="medio_otro_cafe"
                   placeholder="Especifica otro medio"
                   class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
                 />
               </div>
               <script>
-                document.getElementById("medio-sabores").addEventListener("change", function () {
-                  const otroContainer = document.getElementById("otro-medio-container");
+                document.getElementById("medio-cafe").addEventListener("change", function () {
+                  const otroContainer = document.getElementById("otro-medio-container-cafe");
                   if (this.value === "Otro") {
                     otroContainer.style.display = "block";
                   } else {
                     otroContainer.style.display = "none";
-                    document.getElementById("medio_otro").value = ""; // Limpia si cambia opción
+                    document.getElementById("medio_otro-cafe").value = ""; // Limpia si cambia opción
                   }
                 });
               </script>
