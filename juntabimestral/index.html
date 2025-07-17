@@ -98,8 +98,8 @@ Acompáñanos y comparte tus ideas. ¡Tu participación es clave!
             </p>
 
             <form
-              id=""
-              action="#"
+              id="form-junta"
+              action="https://script.google.com/macros/s/AKfycbz3iRmrIvbKeH9xsS_yxnOoGw-svkn11IA6IX4UfHM19-rbPJFia70y8DhCh9jtVRkJYQ/exec"
               method="POST"
               class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
             >
@@ -178,6 +178,8 @@ Acompáñanos y comparte tus ideas. ¡Tu participación es clave!
               </div>
 
               <div>
+                <input type="hidden" name="form_id" value="junta" />
+
                 <button
                   type="submit"
                   class="bg-edpurple h-[55px] px-[24px] rounded-[10px] text-white hover:bg-edblue font-medium"
@@ -318,7 +320,53 @@ Acompáñanos y comparte tus ideas. ¡Tu participación es clave!
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/accordion.js"></script>
 
-    <!-- Form submission con validación -->
+<!-- Junta Bimestral -->
+<script>
+  document.querySelector('#form-junta').addEventListener('submit', async function (e) {        e.preventDefault(); // 🛑 Detiene envío por defecto
+        const form = e.target;
+        const data = new FormData(form);
+    
+        // Mostrar loader SweetAlert
+        Swal.fire({
+          title: 'Enviando...',
+          html: 'Por favor espera mientras enviamos tu registro.',
+          allowOutsideClick: false,
+          showConfirmButton: false,
+          didOpen: () => {
+            Swal.showLoading();
+          }
+        });
+    
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: data
+          });
+    
+          const text = await res.text();
+    
+          // Mostrar mensaje de éxito
+          Swal.fire({
+            title: '¡Gracias!',
+            text: text || 'Tu registro fue enviado correctamente.',
+            icon: 'success',
+            confirmButtonText: 'Cerrar',
+            confirmButtonColor: '#5B21B6'
+          });
+    
+          form.reset();
+    
+        } catch (error) {
+          console.error(error);
+          Swal.fire({
+            title: 'Error',
+            text: 'Hubo un problema al enviar tu registro. Intenta nuevamente.',
+            icon: 'error'
+          });
+        }
+      });
+    </script>
+    
 
   </body>
 </html>

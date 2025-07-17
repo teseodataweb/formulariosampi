@@ -101,8 +101,8 @@
             </p>
 
             <form
-              id=""
-              action="#"
+              id="form-cafe"
+              action="https://script.google.com/macros/s/AKfycbz3iRmrIvbKeH9xsS_yxnOoGw-svkn11IA6IX4UfHM19-rbPJFia70y8DhCh9jtVRkJYQ/exec"
               method="POST"
               class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
             >
@@ -181,7 +181,55 @@
                 </select>
               </div>
 
+              
               <div>
+                <label class="block font-semibold text-edblue mb-[8px]">
+                  6. ¿Cómo te enteraste del evento?
+                </label>
+                <select
+                  name="medio"
+                  id="medio-sabores"
+                  required
+                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
+                >
+                  <option value="">Selecciona una opción</option>
+                  <option value="Redes sociales">Redes sociales</option>
+                  <option value="Invitación por WhatsApp">Invitación por WhatsApp</option>
+                  <option value="Correo electrónico">Correo electrónico</option>
+                  <option value="Grupo de WhatsApp">Grupo de WhatsApp</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+              
+              <!-- Campo condicional "Especifique" -->
+              <div id="otro-medio-container" style="display: none;">
+                <label class="block font-semibold text-edblue mb-[8px] mt-[10px]">
+                  Especifica cómo te enteraste:
+                </label>
+                <input
+                  type="text"
+                  name="medio_otro"
+                  id="medio_otro"
+                  placeholder="Especifica otro medio"
+                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
+                />
+              </div>
+              <script>
+                document.getElementById("medio-sabores").addEventListener("change", function () {
+                  const otroContainer = document.getElementById("otro-medio-container");
+                  if (this.value === "Otro") {
+                    otroContainer.style.display = "block";
+                  } else {
+                    otroContainer.style.display = "none";
+                    document.getElementById("medio_otro").value = ""; // Limpia si cambia opción
+                  }
+                });
+              </script>
+              
+              
+
+              <div>
+                <input type="hidden" name="form_id" value="cafe" />
                 <button
                   type="submit"
                   class="bg-edpurple h-[55px] px-[24px] rounded-[10px] text-white hover:bg-edblue font-medium"
@@ -322,6 +370,53 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/accordion.js"></script>
 
+    <script>
+      document.querySelector('#form-cafe').addEventListener('submit', async function (e) {
+        e.preventDefault(); // 🛑 Detiene envío por defecto
+        const form = e.target;
+        const data = new FormData(form);
+    
+        // Mostrar loader SweetAlert
+        Swal.fire({
+          title: 'Enviando...',
+          html: 'Por favor espera mientras enviamos tu registro.',
+          allowOutsideClick: false,
+          showConfirmButton: false,
+          didOpen: () => {
+            Swal.showLoading();
+          }
+        });
+    
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: data
+          });
+    
+          const text = await res.text();
+    
+          // Mostrar mensaje de éxito
+          Swal.fire({
+            title: '¡Gracias!',
+            text: text || 'Tu registro fue enviado correctamente.',
+            icon: 'success',
+            confirmButtonText: 'Cerrar',
+            confirmButtonColor: '#5B21B6'
+          });
+    
+          form.reset();
+    
+        } catch (error) {
+          console.error(error);
+          Swal.fire({
+            title: 'Error',
+            text: 'Hubo un problema al enviar tu registro. Intenta nuevamente.',
+            icon: 'error'
+          });
+        }
+      });
+    </script>
+    
 
   </body>
 </html>
