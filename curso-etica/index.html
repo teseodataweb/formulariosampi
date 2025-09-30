@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso de Ética | AMPI Riviera Nayarit</title>
+    <meta
+      name="description"
+      content="Regístrate al Curso de Ética de AMPI Riviera Nayarit y fortalece tu práctica profesional con principios de honestidad, transparencia y responsabilidad."
+    />
+    <link rel="icon" href="../favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/vendor/font-awesome/all.min.css" />
+    <link rel="stylesheet" href="../src/output.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNXC8ECL83"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HNXC8ECL83');
+    </script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="bg-edblue ed-header--2 relative z-[2] px-[7.9%] py-[25px] flex items-center justify-between">
+      <div class="logo">
+        <a href="../index-2.html"><img src="../assets/img/logoampi.png" alt="logo" /></a>
+      </div>
+      <ul class="ed-header-nav flex gap-x-[43px] font-kanit text-[17px]">
+        <li><a href="https://ampirivieranayarit.com/">Inicio</a></li>
+      </ul>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <section class="py-[120px] xl:py-[80px] md:py-[60px]">
+        <div class="container mx-auto max-w-[1200px] px-[12px]">
+          <div id="form" class="w-full">
+            <h2 class="text-[40px] md:text-[35px] sm:text-[30px] font-semibold text-edblue mb-[7px]">
+              Curso de Ética
+            </h2>
+            <p class="text-edgray font-normal text-[16px] mb-[38px]">
+              Regístrate al <strong>Curso de Ética de AMPI Riviera Nayarit</strong> y aprende a aplicar principios de honestidad, transparencia y responsabilidad en tu práctica inmobiliaria.
+            </p>
+
+            <p class="text-edblue font-medium mb-[20px]">
+              📅 6 de octubre | 4:30 – 6:00 p.m. <br />
+              📍 Oficina AMPI Riviera Nayarit <br />
+              👤 Ponente: C.P. Miguel Tejeda Guillemín <br />
+              📚 Beneficio: 2 créditos de educación <br />
+              👥 Cupo limitado
+            </p>
+
+            <form
+              id="form-etica"
+              action="https://script.google.com/macros/s/AKfycbwtqkV4zmGUO0suKtdXbatU4DKKAAOocJhdpS5dEMbUs_XtJjVbgKR4yrikFjqVlAMM2w/exec"
+              method="POST"
+              class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
+            >
+              <!-- Información general -->
+              <h3 class="text-edblue text-[24px] font-semibold">Información general</h3>
+
+              <div>
+                <label class="block font-semibold text-edblue mb-[8px]">1. Nombre completo:</label>
+                <input type="text" name="nombre" placeholder="Ingresa tu nombre completo" minlength="3" required class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+              </div>
+
+              <div>
+                <label class="block font-semibold text-edblue mb-[8px]">2. Teléfono:</label>
+                <input type="tel" name="telefono" placeholder="Ingresa tu número celular" pattern="[0-9]{10}" maxlength="10" required class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+              </div>
+
+              <div>
+                <label class="block font-semibold text-edblue mb-[8px]">3. Correo electrónico:</label>
+                <input type="email" name="correo" placeholder="Ingresa tu correo electrónico" required class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+              </div>
+
+              <div>
+                <label class="block font-semibold text-edblue mb-[8px]">4. Agencia:</label>
+                <input type="text" name="agencia" placeholder="Nombre de tu agencia" class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+              </div>
+
+              <div>
+                <label class="block font-semibold text-edblue mb-[8px]">5. Tipo de participante:</label>
+                <select name="perfil" required class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]">
+                  <option value="">Selecciona tu perfil</option>
+                  <option value="Asociado">Asociado</option>
+                  <option value="Afiliado">Afiliado</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-edblue mb-[8px]">¿Cómo te enteraste del curso?</label>
+                <select name="medio" id="medio-etica" required class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]">
+                  <option value="">Selecciona una opción</option>
+                  <option value="Redes sociales">Redes sociales</option>
+                  <option value="Invitación por WhatsApp">Invitación por WhatsApp</option>
+                  <option value="Correo electrónico">Correo electrónico</option>
+                  <option value="Grupo de WhatsApp">Grupo de WhatsApp</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+
+              <!-- Campo condicional -->
+              <div id="otro-medio-container-etica" style="display: none;">
+                <label class="block font-semibold text-edblue mb-[8px] mt-[10px]">Especifica cómo te enteraste:</label>
+                <input type="text" name="medio_otro" id="medio_otro_etica" placeholder="Especifica otro medio" class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+              </div>
+
+              <script>
+                document.getElementById("medio-etica").addEventListener("change", function () {
+                  const otroContainer = document.getElementById("otro-medio-container-etica");
+                  if (this.value === "Otro") {
+                    otroContainer.style.display = "block";
+                  } else {
+                    otroContainer.style.display = "none";
+                    document.getElementById("medio_otro_etica").value = "";
+                  }
+                });
+              </script>
+
+              <div>
+                <input type="hidden" name="form_id" value="curso-etica" />
+                <button type="submit" class="bg-edpurple h-[55px] px-[24px] rounded-[10px] text-white hover:bg-edblue font-medium">
+                  Regístrate
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="ed-2-cta overflow-hidden bg-edpurple pt-[15px] relative z-[1]">
+        <div class="mx-[19.7%] md:mx-[15px]">
+          <div class="flex md:flex-col gap-y-[15px] items-center justify-between">
+            <div class="max-w-[600px] shrink-0">
+              <h3 class="font-semibold text-[36px] text-white leading-[1.4] mb-[41px]">
+                ¡No te pierdas esta oportunidad de fortalecer tu ética profesional!
+              </h3>
+              <a href="#form" class="ed-btn !h-[56px] !bg-white !text-black hover:!bg-edyellow hover:!text-edblue">
+                Confirmar asistencia
+                <span class="icon"><i class="fa-solid fa-arrow-right-long"></i></span>
+              </a>
+            </div>
+            <div class="mr-[40px] lg:mr-0 relative z-[1] shrink-0">
+              <img src="../assets/img/cta-2-img.png" alt="imagen cta" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer
+      class="bg-edblue relative z-[1] text-white before:absolute before:inset-0 before:-z-[1] before:bg-[url('assets/img/footer-bg.jpg')] before:opacity-[7%] before:bg-cover before:bg-center"
+    >
+      <div class="mx-[19.71%] md:mx-[12px]">
+        <div
+          class="flex flex-wrap justify-between gap-[35px] pt-[100px] pb-[58px] border-b border-white/20"
+        >
+          <div class="max-w-[370px]">
+            <a href="../index-2.html"
+              ><img
+                src="../assets/img/logoampi.png"
+                alt="logo"
+                class="mb-[23px]"
+            /></a>
+            <p class="text-[#D9D9D9] mb-[19px]">
+              Asociación Mexicana de Profesionales Inmobiliarios Riviera Nayarit
+            </p>
+            <ul class="space-y-[17px]">
+              <li>
+                <a href="tel:+523222975322" class="hover:text-edyellow"
+                  ><i class="fa fa-phone mr-2"></i>+52 322 297 5322</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mailto:ampi.nayarit@gmail.com"
+                  class="hover:text-edyellow"
+                  ><i class="fa fa-envelope mr-2"></i>ampi.nayarit@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="max-w-[300px]">
+            <div class="flex gap-[20px] mt-[30px]">
+              <span
+                class="pl-[30px] font-medium text-[#d9d9d9] relative before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-[1px] before:w-[20px] before:bg-[#d9d9d9]"
+                >Síguenos</span
+              >
+              <div class="flex gap-[16px] text-[#d9d9d9]">
+                <a
+                  href="https://www.facebook.com/AMPIRivieraNayarit"
+                  class="hover:text-edyellow"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://www.tiktok.com/@ampi.riviera.naya"
+                  class="hover:text-edyellow"
+                  ><i class="fa-brands fa-tiktok"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/company/ampi-riviera-nayarit/"
+                  class="hover:text-edyellow"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+                <a
+                  href="https://www.youtube.com/@AMPIRivieraNayarit"
+                  class="hover:text-edyellow"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/ampirivieranayarit/"
+                  class="hover:text-edyellow"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-wrap items-center justify-between gap-[15px] pt-[20px] pb-[50px] text-[#d9d9d9]"
+        >
+          <p>
+            &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            AMPI Riviera Nayarit. Todos los Derechos Reservados.
+          </p>
+          <a
+            href="http://ampirivieranayarit.com/copyright-policy/"
+            class="hover:text-edyellow"
+            >Términos y Condiciones</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelector('#form-etica').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = new FormData(form);
+
+        Swal.fire({ title: 'Enviando...', html: 'Por favor espera...', allowOutsideClick: false, showConfirmButton: false, didOpen: () => Swal.showLoading() });
+
+        try {
+          const res = await fetch(form.action, { method: "POST", body: data });
+          const text = await res.text();
+          Swal.fire({ title: "¡Gracias!", text: text || "Tu registro fue enviado correctamente.", icon: "success", confirmButtonText: "Cerrar", confirmButtonColor: "#5B21B6" });
+          form.reset();
+        } catch (error) {
+          Swal.fire({ title: "Error", text: "Hubo un problema al enviar tu registro. Intenta nuevamente.", icon: "error" });
+        }
+      });
+    </script>
+  </body>
+</html>
