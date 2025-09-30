@@ -57,7 +57,7 @@
 
             <form
               id="form-etica"
-              action="https://script.google.com/macros/s/AKfycbwtqkV4zmGUO0suKtdXbatU4DKKAAOocJhdpS5dEMbUs_XtJjVbgKR4yrikFjqVlAMM2w/exec"
+              action="https://script.google.com/macros/s/AKfycbzzqK5HOvvUZtRaWKVQXJGyJSn93DhGQbXHf2eK0fR7ELv1F3Su2hbLiT1XGdZaRiihzA/exec"
               method="POST"
               class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
             >
@@ -246,22 +246,69 @@
     </footer>
 
     <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          // Consulta disponibilidad en el Apps Script
+          const res = await fetch("https://script.google.com/macros/s/AKfycbzzqK5HOvvUZtRaWKVQXJGyJSn93DhGQbXHf2eK0fR7ELv1F3Su2hbLiT1XGdZaRiihzA/exec?form_id=curso-etica");
+          const data = await res.json();
+    
+          if (!data.disponible) {
+            // Oculta el formulario
+            document.getElementById("form").style.display = "none";
+    
+            // Muestra alerta elegante
+            Swal.fire({
+              icon: "warning",
+              title: "⚠️ Cupo lleno",
+              html: `
+                Ya no hay lugares disponibles para el <strong>Curso de Ética</strong><br>
+                Fecha: <b>${data.fecha}</b><br><br>
+                Gracias por tu interés 🙏
+              `,
+              confirmButtonText: "Cerrar",
+              confirmButtonColor: "#5B21B6"
+            });
+          }
+        } catch (error) {
+          console.error("Error verificando cupo:", error);
+        }
+      });
+    
+      // Listener de envío normal del formulario
       document.querySelector('#form-etica').addEventListener('submit', async function (e) {
         e.preventDefault();
         const form = e.target;
         const data = new FormData(form);
-
-        Swal.fire({ title: 'Enviando...', html: 'Por favor espera...', allowOutsideClick: false, showConfirmButton: false, didOpen: () => Swal.showLoading() });
-
+    
+        Swal.fire({
+          title: 'Enviando...',
+          html: 'Por favor espera...',
+          allowOutsideClick: false,
+          showConfirmButton: false,
+          didOpen: () => Swal.showLoading()
+        });
+    
         try {
           const res = await fetch(form.action, { method: "POST", body: data });
           const text = await res.text();
-          Swal.fire({ title: "¡Gracias!", text: text || "Tu registro fue enviado correctamente.", icon: "success", confirmButtonText: "Cerrar", confirmButtonColor: "#5B21B6" });
+          Swal.fire({
+            title: "¡Gracias!",
+            text: text || "Tu registro fue enviado correctamente.",
+            icon: "success",
+            confirmButtonText: "Cerrar",
+            confirmButtonColor: "#5B21B6"
+          });
           form.reset();
         } catch (error) {
-          Swal.fire({ title: "Error", text: "Hubo un problema al enviar tu registro. Intenta nuevamente.", icon: "error" });
+          Swal.fire({
+            title: "Error",
+            text: "Hubo un problema al enviar tu registro. Intenta nuevamente.",
+            icon: "error"
+          });
         }
       });
     </script>
+    
+    
   </body>
 </html>
