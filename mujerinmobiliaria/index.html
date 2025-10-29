@@ -33,6 +33,8 @@
       gtag("js", new Date());
       gtag("config", "G-HNXC8ECL83");
     </script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdfVvorAAAAAEPgxcXL05EjrM8Vc7WxKS2p8nuM"></script>
   </head>
 
   <body>
@@ -99,7 +101,7 @@
 
             <form
               id="form-mujer"
-              action="https://script.google.com/macros/s/AKfycbw4eLngpdVe8DUI45jqrMqNJSw9EERMk78Rsd6UBFYo-4R4GsFyeZ4C-k5gr4H0_4Hgig/exec"
+              action="https://script.google.com/macros/s/AKfycbxIJSb3tp_GL4RTwMdDM2f03BDB1pkcxIaqYYcE6FksRwAK3AQzcjoVfQWT-esvVtnofQ/exec"
               method="POST"
               class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
             >
@@ -369,49 +371,97 @@
 
     <!-- Form submission con validación -->
 <!-- Formulario Mujer Inmobiliaria con loader y confirmación -->
-<script>
-  document.querySelector('#form-mujer').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
 
-    // Mostrar loader antes del envío
-    Swal.fire({
-      title: 'Enviando...',
-      html: 'Por favor espera mientras enviamos tu registro.',
-      allowOutsideClick: false,
-      showConfirmButton: false,
-      didOpen: () => {
-        Swal.showLoading();
-      }
+<script>
+    // --- CONFIGURACIÓN RECAPTCHA V3 ---
+    const RECAPTCHA_SITE_KEY = '6LdfVvorAAAAAEPgxcXL05EjrM8Vc7WxKS2p8nuM';
+    const RECAPTCHA_ACTION = 'registro_mujer'; // <--- ACCIÓN ÚNICA para este formulario
+
+    // Listener para mostrar/ocultar "Otro" (Ya estaba correctamente ubicado antes del form)
+    document.getElementById("medio-mujer").addEventListener("change", function () {
+        const otroContainer = document.getElementById("otro-medio-container-mujer");
+        const otroInput = document.getElementById("medio_otro_mujer");
+        if (this.value === "Otro") {
+            otroContainer.style.display = "block";
+        } else {
+            otroContainer.style.display = "none";
+            if (otroInput) otroInput.value = "";
+        }
     });
 
-    try {
-      const res = await fetch(form.action, {
-        method: "POST",
-        body: data
-      });
+    // Envío del formulario (POST) CON RECAPTCHA V3
+    document.querySelector('#form-mujer').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const form = e.target;
 
-      const text = await res.text();
+        // 1. Mostrar loader y mensaje de verificación
+        Swal.fire({
+            title: 'Verificando seguridad...',
+            html: 'Por favor espera mientras enviamos tu registro.',
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
 
-      Swal.fire({
-        title: "¡Gracias!",
-        text: text || "Tu registro fue enviado correctamente.",
-        icon: "success",
-        confirmButtonText: "Cerrar",
-        confirmButtonColor: "#5B21B6"
-      });
+        try {
+            // 2. Ejecutar reCAPTCHA v3 y obtener el token
+            const token = await new Promise((resolve) => {
+                grecaptcha.ready(function() {
+                    grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: RECAPTCHA_ACTION})
+                            .then(resolve);
+                });
+            });
 
-      form.reset();
-    } catch (error) {
-      console.error(error);
-      Swal.fire({
-        title: "Error",
-        text: "Hubo un problema al enviar tu registro. Intenta nuevamente.",
-        icon: "error"
-      });
-    }
-  });
+            // 3. Preparar los datos del formulario, incluyendo los tokens
+            const formData = new FormData(form);
+            formData.append('g-recaptcha-response', token);
+            formData.append('recaptcha_action', RECAPTCHA_ACTION); // Clave para Apps Script
+            
+            // 4. Enviar los datos al Google Apps Script
+            const res = await fetch(form.action, { method: 'POST', body: formData });
+            const text = await res.text();
+            
+            // 5. Mostrar resultado
+            const isSuccess = text.includes("Tu registro") && res.ok;
+            const isVerificationFailed = text.includes("Verificación de seguridad fallida");
+
+            if (isSuccess) {
+                Swal.fire({
+                    title: "¡Gracias!",
+                    text: text || "Tu registro fue enviado correctamente.",
+                    icon: "success",
+                    confirmButtonText: "Cerrar",
+                    confirmButtonColor: "#5B21B6"
+                });
+                form.reset();
+            } else {
+                let errorMessage;
+                if (isVerificationFailed) {
+                    errorMessage = "⚠️ Verificación de seguridad fallida. Intenta nuevamente o contacta a soporte.";
+                } else {
+                    errorMessage = text.replace(/<(?:.|\n)*?>/gm, '') || "Hubo un problema al enviar tu registro. Intenta nuevamente.";
+                }
+                
+                Swal.fire({
+                    title: 'Error de Registro',
+                    text: errorMessage,
+                    icon: 'error',
+                    confirmButtonText: 'Cerrar',
+                    confirmButtonColor: '#5B21B6'
+                });
+            }
+
+        } catch (error) {
+            console.error("Error en el proceso de envío:", error);
+            Swal.fire({
+                title: 'Error Inesperado',
+                text: 'Hubo un problema de conexión o seguridad. Intenta nuevamente.',
+                icon: 'error'
+            });
+        }
+    });
 </script>
 
 

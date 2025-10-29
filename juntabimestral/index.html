@@ -1,417 +1,364 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Junta Bimestral | AMPI Riviera Nayarit</title>
-    <meta
-      name="description"
-      content="Participa  en nuestra Junta Bimestral y ayuda a mejorar tus experiencias con AMPI Riviera Nayarit."
-    />
-    <link rel="icon" href="../favicon.png" type="image/x-icon" />
 
-    <!-- Plugins & Librerías -->
-    <link rel="stylesheet" href="../assets/vendor/font-awesome/all.min.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junta Bimestral | AMPI Riviera Nayarit</title>
+  <meta name="description"
+    content="Participa  en nuestra Junta Bimestral y ayuda a mejorar tus experiencias con AMPI Riviera Nayarit." />
+  <link rel="icon" href="../favicon.png" type="image/x-icon" />
 
-    <!-- Estilos -->
-    <link rel="stylesheet" href="../src/output.css" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+  <!-- Plugins & Librerías -->
+  <link rel="stylesheet" href="../assets/vendor/font-awesome/all.min.css" />
 
-    <!-- SweetAlert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../src/output.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 
-    <!-- Google Tag -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-HNXC8ECL83"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-HNXC8ECL83");
-    </script>
-  </head>
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <body>
-    <!-- Overlay y búsqueda (estructura oculta) -->
-    <div class="ed-overlay group">
-      <div
-        class="fixed inset-0 z-[100] group-[.active]:bg-edblue/80 duration-[400ms] pointer-events-none group-[.active]:pointer-events-auto"
-      ></div>
+  <!-- Google Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNXC8ECL83"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-HNXC8ECL83");
+  </script>
+
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdfVvorAAAAAEPgxcXL05EjrM8Vc7WxKS2p8nuM"></script>
+</head>
+
+<body>
+  <!-- Overlay y búsqueda (estructura oculta) -->
+  <div class="ed-overlay group">
+    <div
+      class="fixed inset-0 z-[100] group-[.active]:bg-edblue/80 duration-[400ms] pointer-events-none group-[.active]:pointer-events-auto">
     </div>
+  </div>
 
-    <div class="ed-search group">
-      <form
-        class="bg-white fixed z-[100] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[100px] md:h-[70px] xxs:h-[50px] w-[1224px] max-w-[95%] flex gap-[10px] rounded-full overflow-hidden px-[40px] xxs:px-[20px] pointer-events-none opacity-0 group-[.active]:pointer-events-auto group-[.active]:opacity-100 duration-[400ms]"
-      >
-        <input
-          type="search"
-          name="ed-search"
-          placeholder="Buscar..."
-          class="bg-transparent w-full focus:outline-none"
-        />
-        <button class="text-[25px] md:text-[22px] xxs:text-[20px]">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
+  <div class="ed-search group">
+    <form
+      class="bg-white fixed z-[100] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[100px] md:h-[70px] xxs:h-[50px] w-[1224px] max-w-[95%] flex gap-[10px] rounded-full overflow-hidden px-[40px] xxs:px-[20px] pointer-events-none opacity-0 group-[.active]:pointer-events-auto group-[.active]:opacity-100 duration-[400ms]">
+      <input type="search" name="ed-search" placeholder="Buscar..." class="bg-transparent w-full focus:outline-none" />
+      <button class="text-[25px] md:text-[22px] xxs:text-[20px]">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+
+  <!-- Header -->
+  <header
+    class="bg-edblue ed-header--2 relative z-[2] px-[7.9%] py-[25px] xxs:py-[16px] flex items-center justify-between">
+    <div class="logo xxs:max-w-[40%]">
+      <a href="../index-2.html"><img src="../assets/img/logoampi.png" alt="logo" /></a>
     </div>
+    <div class="flex lg:items-center lg:gap-[30px]">
+      <ul class="ed-header-nav flex gap-x-[43px] font-kanit text-[17px]">
+        <li><a href="https://ampirivieranayarit.com/">Inicio</a></li>
+      </ul>
+      <button type="button"
+        class="ed-mobile-menu-open-btn hidden lg:inline-block text-white text-[18px] hover:text-edyellow">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header
-      class="bg-edblue ed-header--2 relative z-[2] px-[7.9%] py-[25px] xxs:py-[16px] flex items-center justify-between"
-    >
-      <div class="logo xxs:max-w-[40%]">
-        <a href="../index-2.html"
-          ><img src="../assets/img/logoampi.png" alt="logo"
-        /></a>
-      </div>
-      <div class="flex lg:items-center lg:gap-[30px]">
-        <ul class="ed-header-nav flex gap-x-[43px] font-kanit text-[17px]">
-          <li><a href="https://ampirivieranayarit.com/">Inicio</a></li>
-        </ul>
-        <button
-          type="button"
-          class="ed-mobile-menu-open-btn hidden lg:inline-block text-white text-[18px] hover:text-edyellow"
-        >
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
-    </header>
-
-    <!-- Main -->
-    <main>
-      <!-- CONTACT SECTION START -->
-      <section class="py-[120px] xl:py-[80px] md:py-[60px]">
-        <div class="container mx-auto max-w-[1200px] px-[12px] xl:max-w-full">
-          <div id="form" class="w-full">
-            <h2
-              class="text-[40px] md:text-[35px] sm:text-[30px] xxs:text-[28px] font-semibold text-edblue mb-[7px]"
-            >
-              Registro | Junta Bimestral
-            </h2>
-            <p class="text-edgray font-normal text-[16px] mb-[38px]">
-              Queremos contar contigo para seguir fortaleciendo nuestra comunidad.
-Acompáñanos y comparte tus ideas. ¡Tu participación es clave!
-            </p>
-
-            <form
-              id="form-junta"
-              action="https://script.google.com/macros/s/AKfycbw4eLngpdVe8DUI45jqrMqNJSw9EERMk78Rsd6UBFYo-4R4GsFyeZ4C-k5gr4H0_4Hgig/exec"
-              method="POST"
-              class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
-            >
-              <!-- 👤 Información general -->
-              <h3 class="text-edblue text-[24px] font-semibold">
-                Información general
-              </h3>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]">
-                  1. Nombre completo:
-                </label>
-                <input
-                  type="text"
-                  name="nombre"
-                  placeholder="Ingresa tu nombre completo"
-                  minlength="3"
-                  required
-                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                />
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]">
-                  2. Teléfono:
-                </label>
-                <input
-                  type="tel"
-                  name="telefono"
-                  placeholder="Ingresa tu número celular"
-                  pattern="[0-9]{10}"
-                  maxlength="10"
-                  required
-                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                />
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]">
-                  3. Correo electrónico:
-                </label>
-                <input
-                  type="email"
-                  name="correo"
-                  placeholder="Ingresa tu correo electrónico"
-                  required
-                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                />
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]">
-                  4. Agencia:
-                </label>
-                <input
-                  type="text"
-                  name="agencia"
-                  placeholder="Nombre de tu agencia"
-                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                />
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]">
-                  5. Perfil:
-                </label>
-                <select
-                  name="perfil"
-                  required
-                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                >
-                  <option value="">Selecciona tu tipo de participante</option>
-                  <option value="Afiliado">Afiliado</option>
-                  <option value="Asociado">Asociado</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block font-semibold text-edblue mb-[8px]">
-                  6. ¿Cómo te enteraste del evento?
-                </label>
-                <select
-                  name="medio"
-                  id="medio-junta"
-                  required
-                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                >
-                  <option value="">Selecciona una opción</option>
-                  <option value="Redes sociales">Redes sociales</option>
-                  <option value="Invitación por WhatsApp">Invitación por WhatsApp</option>
-                  <option value="Correo electrónico">Correo electrónico</option>
-                  <option value="Grupo de WhatsApp">Grupo de WhatsApp</option>
-                  <option value="Otro">Otro</option>
-                </select>
-              </div>
-              
-              <!-- Campo condicional "Especifique" -->
-              <div id="otro-medio-container-junta" style="display: none;">
-                <label class="block font-semibold text-edblue mb-[8px] mt-[10px]">
-                  Especifica cómo te enteraste:
-                </label>
-                <input
-                  type="text"
-                  name="medio_otro"
-                  id="medio_otro_junta"
-                  placeholder="Especifica otro medio"
-                  class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]"
-                />
-              </div>
-              <script>
-                document.getElementById("medio-junta").addEventListener("change", function () {
-                  const otroContainer = document.getElementById("otro-medio-container-junta");
-                  if (this.value === "Otro") {
-                    otroContainer.style.display = "block";
-                  } else {
-                    otroContainer.style.display = "none";
-                    document.getElementById("medio_otro_junta").value = ""; // Limpia si cambia opción
-                  }
-                });
-              </script>
-              
-
-              <div>
-                <input type="hidden" name="form_id" value="junta" />
-
-                <button
-                  type="submit"
-                  class="bg-edpurple h-[55px] px-[24px] rounded-[10px] text-white hover:bg-edblue font-medium"
-                >
-                  Participar
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-      <!-- CONTACT SECTION END -->
-
-      <!-- CTA Final -->
-      <section
-        class="ed-2-cta overflow-hidden bg-edpurple pt-[15px] md:pt-[40px] relative z-[1] before:absolute before:inset-0 before:bg-[url(../assets/img/cta-2-vector.png)] before:bg-center before:bg-no-repeat before:bg-cover before:-z-[1]"
-      >
-        <div class="mx-[19.7%] md:mx-[15px]">
-          <div
-            class="flex md:flex-col gap-y-[15px] items-center justify-between"
-          >
-            <div class="max-w-[600px] shrink-0">
-              <h3
-                class="font-semibold text-[36px] text-white leading-[1.4] mb-[41px]"
-              >
-                Regístrate ahora a la Junta Bimestral?
-              </h3>
-              <a
-                href="#form"
-                class="ed-btn !h-[56px] !bg-white !text-black hover:!bg-edyellow hover:!text-edblue"
-              >
-                Quiero Asistir
-                <span class="icon"
-                  ><i class="fa-solid fa-arrow-right-long"></i
-                ></span>
-              </a>
-            </div>
-            <div class="mr-[40px] lg:mr-0 relative z-[1] shrink-0">
-              <img src="../assets/img/cta-2-img.png" alt="imagen cta" />
-              <div
-                class="aspect-square w-[386px] border-[57px] border-edyellow rounded-full absolute bottom-0 right-[25%] translate-y-[50%] -z-[1]"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer
-      class="bg-edblue relative z-[1] text-white before:absolute before:inset-0 before:-z-[1] before:bg-[url('assets/img/footer-bg.jpg')] before:opacity-[7%] before:bg-cover before:bg-center"
-    >
-      <div class="mx-[19.71%] md:mx-[12px]">
-        <div
-          class="flex flex-wrap justify-between gap-[35px] pt-[100px] pb-[58px] border-b border-white/20"
-        >
-          <div class="max-w-[370px]">
-            <a href="../index-2.html"
-              ><img
-                src="../assets/img/logoampi.png"
-                alt="logo"
-                class="mb-[23px]"
-            /></a>
-            <p class="text-[#D9D9D9] mb-[19px]">
-              Asociación Mexicana de Profesionales Inmobiliarios Riviera Nayarit
-            </p>
-            <ul class="space-y-[17px]">
-              <li>
-                <a href="tel:+523222975322" class="hover:text-edyellow"
-                  ><i class="fa fa-phone mr-2"></i>+52 322 297 5322</a
-                >
-              </li>
-              <li>
-                <a
-                  href="mailto:ampi.nayarit@gmail.com"
-                  class="hover:text-edyellow"
-                  ><i class="fa fa-envelope mr-2"></i>ampi.nayarit@gmail.com</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="max-w-[300px]">
-            <div class="flex gap-[20px] mt-[30px]">
-              <span
-                class="pl-[30px] font-medium text-[#d9d9d9] relative before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-[1px] before:w-[20px] before:bg-[#d9d9d9]"
-                >Síguenos</span
-              >
-              <div class="flex gap-[16px] text-[#d9d9d9]">
-                <a
-                  href="https://www.facebook.com/AMPIRivieraNayarit"
-                  class="hover:text-edyellow"
-                  ><i class="fa-brands fa-facebook-f"></i
-                ></a>
-                <a
-                  href="https://www.tiktok.com/@ampi.riviera.naya"
-                  class="hover:text-edyellow"
-                  ><i class="fa-brands fa-tiktok"></i
-                ></a>
-                <a
-                  href="https://www.linkedin.com/company/ampi-riviera-nayarit/"
-                  class="hover:text-edyellow"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-                <a
-                  href="https://www.youtube.com/@AMPIRivieraNayarit"
-                  class="hover:text-edyellow"
-                  ><i class="fa-brands fa-youtube"></i
-                ></a>
-                <a
-                  href="https://www.instagram.com/ampirivieranayarit/"
-                  class="hover:text-edyellow"
-                  ><i class="fa-brands fa-instagram"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="flex flex-wrap items-center justify-between gap-[15px] pt-[20px] pb-[50px] text-[#d9d9d9]"
-        >
-          <p>
-            &copy;
-            <script>
-              document.write(new Date().getFullYear());
-            </script>
-            AMPI Riviera Nayarit. Todos los Derechos Reservados.
+  <!-- Main -->
+  <main>
+    <!-- CONTACT SECTION START -->
+    <section class="py-[120px] xl:py-[80px] md:py-[60px]">
+      <div class="container mx-auto max-w-[1200px] px-[12px] xl:max-w-full">
+        <div id="form" class="w-full">
+          <h2 class="text-[40px] md:text-[35px] sm:text-[30px] xxs:text-[28px] font-semibold text-edblue mb-[7px]">
+            Registro | Junta Bimestral
+          </h2>
+          <p class="text-edgray font-normal text-[16px] mb-[38px]">
+            Queremos contar contigo para seguir fortaleciendo nuestra comunidad.
+            Acompáñanos y comparte tus ideas. ¡Tu participación es clave!
           </p>
-          <a
-            href="http://ampirivieranayarit.com/copyright-policy/"
-            class="hover:text-edyellow"
-            >Términos y Condiciones</a
-          >
+
+          <form id="form-junta"
+            action="https://script.google.com/macros/s/AKfycbxIJSb3tp_GL4RTwMdDM2f03BDB1pkcxIaqYYcE6FksRwAK3AQzcjoVfQWT-esvVtnofQ/exec"
+            method="POST" class="grid grid-cols-1 gap-[30px] text-[16px] w-full">
+            <!-- 👤 Información general -->
+            <h3 class="text-edblue text-[24px] font-semibold">
+              Información general
+            </h3>
+
+            <div>
+              <label class="block font-semibold text-edblue mb-[8px]">
+                1. Nombre completo:
+              </label>
+              <input type="text" name="nombre" placeholder="Ingresa tu nombre completo" minlength="3" required
+                class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+            </div>
+
+            <div>
+              <label class="block font-semibold text-edblue mb-[8px]">
+                2. Teléfono:
+              </label>
+              <input type="tel" name="telefono" placeholder="Ingresa tu número celular" pattern="[0-9]{10}"
+                maxlength="10" required class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+            </div>
+
+            <div>
+              <label class="block font-semibold text-edblue mb-[8px]">
+                3. Correo electrónico:
+              </label>
+              <input type="email" name="correo" placeholder="Ingresa tu correo electrónico" required
+                class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+            </div>
+
+            <div>
+              <label class="block font-semibold text-edblue mb-[8px]">
+                4. Agencia:
+              </label>
+              <input type="text" name="agencia" placeholder="Nombre de tu agencia"
+                class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+            </div>
+
+            <div>
+              <label class="block font-semibold text-edblue mb-[8px]">
+                5. Perfil:
+              </label>
+              <select name="perfil" required class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]">
+                <option value="">Selecciona tu tipo de participante</option>
+                <option value="Afiliado">Afiliado</option>
+                <option value="Asociado">Asociado</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block font-semibold text-edblue mb-[8px]">
+                6. ¿Cómo te enteraste del evento?
+              </label>
+              <select name="medio" id="medio-junta" required
+                class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]">
+                <option value="">Selecciona una opción</option>
+                <option value="Redes sociales">Redes sociales</option>
+                <option value="Invitación por WhatsApp">Invitación por WhatsApp</option>
+                <option value="Correo electrónico">Correo electrónico</option>
+                <option value="Grupo de WhatsApp">Grupo de WhatsApp</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <!-- Campo condicional "Especifique" -->
+            <div id="otro-medio-container-junta" style="display: none;">
+              <label class="block font-semibold text-edblue mb-[8px] mt-[10px]">
+                Especifica cómo te enteraste:
+              </label>
+              <input type="text" name="medio_otro" id="medio_otro_junta" placeholder="Especifica otro medio"
+                class="w-full border border-[#ECECEC] h-[50px] px-[20px] rounded-[4px]" />
+            </div>
+            <script>
+              document.getElementById("medio-junta").addEventListener("change", function () {
+                const otroContainer = document.getElementById("otro-medio-container-junta");
+                if (this.value === "Otro") {
+                  otroContainer.style.display = "block";
+                } else {
+                  otroContainer.style.display = "none";
+                  document.getElementById("medio_otro_junta").value = ""; // Limpia si cambia opción
+                }
+              });
+            </script>
+
+
+            <div>
+              <input type="hidden" name="form_id" value="junta" />
+
+              <button type="submit"
+                class="bg-edpurple h-[55px] px-[24px] rounded-[10px] text-white hover:bg-edblue font-medium">
+                Participar
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    </footer>
+    </section>
+    <!-- CONTACT SECTION END -->
 
-    <!-- JS -->
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/accordion.js"></script>
+    <!-- CTA Final -->
+    <section
+      class="ed-2-cta overflow-hidden bg-edpurple pt-[15px] md:pt-[40px] relative z-[1] before:absolute before:inset-0 before:bg-[url(../assets/img/cta-2-vector.png)] before:bg-center before:bg-no-repeat before:bg-cover before:-z-[1]">
+      <div class="mx-[19.7%] md:mx-[15px]">
+        <div class="flex md:flex-col gap-y-[15px] items-center justify-between">
+          <div class="max-w-[600px] shrink-0">
+            <h3 class="font-semibold text-[36px] text-white leading-[1.4] mb-[41px]">
+              Regístrate ahora a la Junta Bimestral?
+            </h3>
+            <a href="#form" class="ed-btn !h-[56px] !bg-white !text-black hover:!bg-edyellow hover:!text-edblue">
+              Quiero Asistir
+              <span class="icon"><i class="fa-solid fa-arrow-right-long"></i></span>
+            </a>
+          </div>
+          <div class="mr-[40px] lg:mr-0 relative z-[1] shrink-0">
+            <img src="../assets/img/cta-2-img.png" alt="imagen cta" />
+            <div
+              class="aspect-square w-[386px] border-[57px] border-edyellow rounded-full absolute bottom-0 right-[25%] translate-y-[50%] -z-[1]">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!-- Junta Bimestral -->
-<script>
-  document.querySelector('#form-junta').addEventListener('submit', async function (e) {        e.preventDefault(); // 🛑 Detiene envío por defecto
-        const form = e.target;
-        const data = new FormData(form);
-    
-        // Mostrar loader SweetAlert
-        Swal.fire({
-          title: 'Enviando...',
-          html: 'Por favor espera mientras enviamos tu registro.',
-          allowOutsideClick: false,
-          showConfirmButton: false,
-          didOpen: () => {
-            Swal.showLoading();
-          }
-        });
-    
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: data
+  <!-- Footer -->
+  <footer
+    class="bg-edblue relative z-[1] text-white before:absolute before:inset-0 before:-z-[1] before:bg-[url('assets/img/footer-bg.jpg')] before:opacity-[7%] before:bg-cover before:bg-center">
+    <div class="mx-[19.71%] md:mx-[12px]">
+      <div class="flex flex-wrap justify-between gap-[35px] pt-[100px] pb-[58px] border-b border-white/20">
+        <div class="max-w-[370px]">
+          <a href="../index-2.html"><img src="../assets/img/logoampi.png" alt="logo" class="mb-[23px]" /></a>
+          <p class="text-[#D9D9D9] mb-[19px]">
+            Asociación Mexicana de Profesionales Inmobiliarios Riviera Nayarit
+          </p>
+          <ul class="space-y-[17px]">
+            <li>
+              <a href="tel:+523222975322" class="hover:text-edyellow"><i class="fa fa-phone mr-2"></i>+52 322 297
+                5322</a>
+            </li>
+            <li>
+              <a href="mailto:ampi.nayarit@gmail.com" class="hover:text-edyellow"><i
+                  class="fa fa-envelope mr-2"></i>ampi.nayarit@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+        <div class="max-w-[300px]">
+          <div class="flex gap-[20px] mt-[30px]">
+            <span
+              class="pl-[30px] font-medium text-[#d9d9d9] relative before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-[1px] before:w-[20px] before:bg-[#d9d9d9]">Síguenos</span>
+            <div class="flex gap-[16px] text-[#d9d9d9]">
+              <a href="https://www.facebook.com/AMPIRivieraNayarit" class="hover:text-edyellow"><i
+                  class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.tiktok.com/@ampi.riviera.naya" class="hover:text-edyellow"><i
+                  class="fa-brands fa-tiktok"></i></a>
+              <a href="https://www.linkedin.com/company/ampi-riviera-nayarit/" class="hover:text-edyellow"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://www.youtube.com/@AMPIRivieraNayarit" class="hover:text-edyellow"><i
+                  class="fa-brands fa-youtube"></i></a>
+              <a href="https://www.instagram.com/ampirivieranayarit/" class="hover:text-edyellow"><i
+                  class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center justify-between gap-[15px] pt-[20px] pb-[50px] text-[#d9d9d9]">
+        <p>
+          &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          AMPI Riviera Nayarit. Todos los Derechos Reservados.
+        </p>
+        <a href="http://ampirivieranayarit.com/copyright-policy/" class="hover:text-edyellow">Términos y Condiciones</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/accordion.js"></script>
+
+  <!-- Junta Bimestral -->
+  <script>
+    // --- CONFIGURACIÓN RECAPTCHA V3 ---
+    const RECAPTCHA_SITE_KEY = '6LdfVvorAAAAAEPgxcXL05EjrM8Vc7WxKS2p8nuM';
+    const RECAPTCHA_ACTION = 'registro_junta'; // <--- ACCIÓN ÚNICA para este formulario
+
+    // Listener para mostrar/ocultar "Otro" (ya estaba en el HTML, lo replicamos aquí)
+    document.getElementById("medio-junta").addEventListener("change", function () {
+      const otroContainer = document.getElementById("otro-medio-container-junta");
+      const otroInput = document.getElementById("medio_otro_junta");
+      if (this.value === "Otro") {
+        otroContainer.style.display = "block";
+      } else {
+        otroContainer.style.display = "none";
+        if (otroInput) otroInput.value = "";
+      }
+    });
+
+    // Envío del formulario (POST) CON RECAPTCHA V3
+    document.querySelector('#form-junta').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = e.target;
+
+      // 1. Mostrar loader y mensaje de verificación
+      Swal.fire({
+        title: 'Verificando seguridad...',
+        html: 'Por favor espera mientras enviamos tu registro.',
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+
+      try {
+        // 2. Ejecutar reCAPTCHA v3 y obtener el token
+        const token = await new Promise((resolve) => {
+          grecaptcha.ready(function () {
+            grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: RECAPTCHA_ACTION })
+              .then(resolve);
           });
-    
-          const text = await res.text();
-    
-          // Mostrar mensaje de éxito
+        });
+
+        // 3. Preparar los datos del formulario, incluyendo los tokens
+        const formData = new FormData(form);
+        formData.append('g-recaptcha-response', token);
+        formData.append('recaptcha_action', RECAPTCHA_ACTION); // Clave para Apps Script
+
+        // 4. Enviar los datos al Google Apps Script
+        const res = await fetch(form.action, { method: 'POST', body: formData });
+        const text = await res.text();
+
+        // 5. Mostrar resultado
+        const isSuccess = text.includes("Tu registro") && res.ok;
+        const isVerificationFailed = text.includes("Verificación de seguridad fallida");
+
+        if (isSuccess) {
           Swal.fire({
-            title: '¡Gracias!',
-            text: text || 'Tu registro fue enviado correctamente.',
-            icon: 'success',
+            title: "¡Gracias!",
+            text: text || "Tu registro fue enviado correctamente.",
+            icon: "success",
+            confirmButtonText: "Cerrar",
+            confirmButtonColor: "#5B21B6"
+          });
+          form.reset();
+        } else {
+          let errorMessage;
+          if (isVerificationFailed) {
+            errorMessage = "⚠️ Verificación de seguridad fallida. Intenta nuevamente o contacta a soporte.";
+          } else {
+            errorMessage = text.replace(/<(?:.|\n)*?>/gm, '') || "Hubo un problema al enviar tu registro. Intenta nuevamente.";
+          }
+
+          Swal.fire({
+            title: 'Error de Registro',
+            text: errorMessage,
+            icon: 'error',
             confirmButtonText: 'Cerrar',
             confirmButtonColor: '#5B21B6'
           });
-    
-          form.reset();
-    
-        } catch (error) {
-          console.error(error);
-          Swal.fire({
-            title: 'Error',
-            text: 'Hubo un problema al enviar tu registro. Intenta nuevamente.',
-            icon: 'error'
-          });
         }
-      });
-    </script>
-    
 
-  </body>
+      } catch (error) {
+        console.error("Error en el proceso de envío:", error);
+        Swal.fire({
+          title: 'Error Inesperado',
+          text: 'Hubo un problema de conexión o seguridad. Intenta nuevamente.',
+          icon: 'error'
+        });
+      }
+    });
+  </script>
+
+
+</body>
+
 </html>
