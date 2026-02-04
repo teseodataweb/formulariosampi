@@ -100,7 +100,7 @@
 
             <form
               id="form-sabores"
-              action="https://script.google.com/macros/s/AKfycbw4eLngpdVe8DUI45jqrMqNJSw9EERMk78Rsd6UBFYo-4R4GsFyeZ4C-k5gr4H0_4Hgig/exec"
+              action="https://script.google.com/macros/s/AKfycbys2qDCiSDptjhU5sPZIDcrkaVg9ZRNtbGZTeTMcD8MiKjovaXnRQU_7c8y4HL6BOcLgg/exec"
               method="POST"
               class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
             >
@@ -366,9 +366,44 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/accordion.js"></script>
 
-<!-- Formulario Sabores AMPI con loader y confirmación -->
+<!-- Formulario Sabores AMPI con verificación de cupo -->
 <script>
-  document.querySelector('#form-sabores').addEventListener('submit', async function (e) {
+  const SABORES_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbys2qDCiSDptjhU5sPZIDcrkaVg9ZRNtbGZTeTMcD8MiKjovaXnRQU_7c8y4HL6BOcLgg/exec";
+  const formSabores = document.querySelector('#form-sabores');
+  const submitBtnSabores = formSabores.querySelector('button[type="submit"]');
+
+  // Verificar cupo al cargar la página
+  async function verificarCupoSabores() {
+    try {
+      const res = await fetch(`${SABORES_SCRIPT_URL}?form_id=sabores`);
+      const data = await res.json();
+
+      if (!data.disponible) {
+        // Deshabilitar formulario
+        formSabores.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+        submitBtnSabores.disabled = true;
+        submitBtnSabores.textContent = 'Cupo Lleno';
+        submitBtnSabores.classList.remove('bg-edpurple', 'hover:bg-edblue');
+        submitBtnSabores.classList.add('bg-gray-400', 'cursor-not-allowed');
+
+        Swal.fire({
+          title: 'Cupo Agotado',
+          html: `Lo sentimos, el evento <strong>Sabores AMPI</strong> ha alcanzado su límite de <strong>${data.maxCapacity}</strong> registros.<br><br>Te invitamos a estar pendiente de nuestros próximos eventos.`,
+          icon: 'warning',
+          confirmButtonText: 'Entendido',
+          confirmButtonColor: '#5B21B6'
+        });
+      }
+    } catch (error) {
+      console.error('Error al verificar cupo:', error);
+    }
+  }
+
+  // Ejecutar verificación al cargar
+  verificarCupoSabores();
+
+  // Envío del formulario
+  formSabores.addEventListener('submit', async function (e) {
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
@@ -392,15 +427,26 @@
 
       const text = await res.text();
 
-      Swal.fire({
-        title: "¡Gracias!",
-        text: text || "Tu registro fue enviado correctamente.",
-        icon: "success",
-        confirmButtonText: "Cerrar",
-        confirmButtonColor: "#5B21B6"
-      });
-
-      form.reset();
+      // Verificar si el cupo se llenó durante el envío
+      if (text.includes("Cupo lleno") || text.includes("⚠")) {
+        Swal.fire({
+          title: "Cupo Agotado",
+          text: text,
+          icon: "warning",
+          confirmButtonText: "Cerrar",
+          confirmButtonColor: "#5B21B6"
+        });
+        verificarCupoSabores(); // Actualizar estado del formulario
+      } else {
+        Swal.fire({
+          title: "¡Gracias!",
+          text: text || "Tu registro fue enviado correctamente.",
+          icon: "success",
+          confirmButtonText: "Cerrar",
+          confirmButtonColor: "#5B21B6"
+        });
+        form.reset();
+      }
     } catch (error) {
       console.error(error);
       Swal.fire({
