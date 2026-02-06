@@ -33,6 +33,7 @@
       gtag("js", new Date());
       gtag("config", "G-HNXC8ECL83");
     </script>
+
   </head>
 
   <body>
@@ -47,6 +48,8 @@
       <form
         class="bg-white fixed z-[100] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[100px] md:h-[70px] xxs:h-[50px] w-[1224px] max-w-[95%] flex gap-[10px] rounded-full overflow-hidden px-[40px] xxs:px-[20px] pointer-events-none opacity-0 group-[.active]:pointer-events-auto group-[.active]:opacity-100 duration-[400ms]"
       >
+      <input type="text" name="website" style="display:none">
+
         <input
           type="search"
           name="ed-search"
@@ -102,7 +105,7 @@
 
             <form
             id="form-cafe"
-            action="https://script.google.com/macros/s/AKfycbyG5kh2VDE7Ti0ZS_AAje7ztHOniiLnYjaOqQpzgQNIKyaJw-7qQJWVtBTK5Ti8-hvL/exec"
+            action="https://script.google.com/macros/s/AKfycbx081rypNVG0A5_rKnVaVzzXOSNigXHCEj1sEJUfHTpSPXAep-IY08J0zJyH0n85nS7MA/exec"
             method="POST"
             class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
           >
@@ -345,11 +348,20 @@
     <!-- JS -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/accordion.js"></script>
+    <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.enterprise.ready(async () => {
+          const token = await grecaptcha.enterprise.execute('6LdfVvorAAAAAEPgxcXL05EjrM8Vc7WxKS2p8nuM', {action: 'LOGIN'});
+        });
+      }
+    </script>
+
 
 
     <script>
       // === Ajusta tu URL base de la Web App ===
-      const BASE_URL = "https://script.google.com/macros/s/AKfycbyG5kh2VDE7Ti0ZS_AAje7ztHOniiLnYjaOqQpzgQNIKyaJw-7qQJWVtBTK5Ti8-hvL/exec"; // p.ej: "https://script.google.com/macros/s/AKfycb.../exec"
+      const BASE_URL = "https://script.google.com/macros/s/AKfycbx081rypNVG0A5_rKnVaVzzXOSNigXHCEj1sEJUfHTpSPXAep-IY08J0zJyH0n85nS7MA/exec"; // p.ej: "https://script.google.com/macros/s/AKfycb.../exec"
     
       // Asegura que el form apunte a la URL correcta
       (function fixAction() {
@@ -379,12 +391,12 @@
           const url = (BASE_URL.endsWith("/exec") ? BASE_URL : (BASE_URL + "/exec")) + "?form_id=cafe";
           const res = await fetch(url);
           const data = await res.json();
-    
+
           if (!data.disponible) {
             form.style.display = "none";
             Swal.fire({
               title: "Cupo lleno",
-              text: "El registro para Café Inmobiliario alcanzó el límite de 45 participantes.",
+              text: "El registro para Café Inmobiliario alcanzó el límite de 30 participantes.",
               icon: "info",
               confirmButtonText: "Cerrar",
               confirmButtonColor: "#5B21B6"
