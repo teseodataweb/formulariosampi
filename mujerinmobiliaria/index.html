@@ -96,10 +96,15 @@
             <p class="text-edgray font-normal text-[16px] mb-[38px]">
               Participa en nuestra charla de Mujer Inmobiliaria y ayuda a mejorar tus experiencias con AMPI Riviera Nayarit.
             </p>
+            <div
+                id="cupo-mujer"
+                class="mb-[20px] text-[16px] font-semibold"
+              ></div>
+
 
             <form
               id="form-mujer"
-              action="https://script.google.com/macros/s/AKfycbw4eLngpdVe8DUI45jqrMqNJSw9EERMk78Rsd6UBFYo-4R4GsFyeZ4C-k5gr4H0_4Hgig/exec"
+              action="https://script.google.com/macros/s/AKfycbwOk0Vfvn-rx54rnOOrTP0pUgcDqgTYoUPzP993E63Ulk476niS5pxL_7RhE4jnAADURw/exec"
               method="POST"
               class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
             >
@@ -369,51 +374,105 @@
 
     <!-- Form submission con validación -->
 <!-- Formulario Mujer Inmobiliaria con loader y confirmación -->
+
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOk0Vfvn-rx54rnOOrTP0pUgcDqgTYoUPzP993E63Ulk476niS5pxL_7RhE4jnAADURw/exec";
+  const submitBtn = document.querySelector('#form-mujer button[type="submit"]');
+  const cupoMsg = document.getElementById('cupo-mujer');
+  
+  async function verificarCupoMujer() {
+    try {
+      const res = await fetch(`${SCRIPT_URL}?form_id=mujer`);
+      const data = await res.json();
+  
+      if (!data.disponible) {
+        cupoMsg.innerHTML = "⚠ Cupo lleno. El registro ya no está disponible.";
+        cupoMsg.className = "mb-[20px] text-red-600 font-semibold";
+        submitBtn.disabled = true;
+        submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+        return false;
+      }
+  
+      if (data.disponibles <= 5) {
+        cupoMsg.innerHTML = `⏰ ¡Últimos ${data.disponibles} lugares disponibles!`;
+        cupoMsg.className = "mb-[20px] text-orange-600 font-semibold";
+      } else {
+        cupoMsg.innerHTML = `✅ Cupo disponible (${data.disponibles} lugares)`;
+        cupoMsg.className = "mb-[20px] text-green-600 font-semibold";
+      }
+  
+      return true;
+    } catch (err) {
+      console.error(err);
+      cupoMsg.innerHTML = "⚠ No se pudo verificar el cupo. Intenta más tarde.";
+      cupoMsg.className = "mb-[20px] text-red-600 font-semibold";
+      submitBtn.disabled = true;
+      return false;
+    }
+  }
+  
+  // Ejecutar al cargar
+  verificarCupoMujer();
+  </script>
 <script>
   document.querySelector('#form-mujer').addEventListener('submit', async function (e) {
     e.preventDefault();
+  
+    // Verificar cupo antes de enviar
+    const cupoDisponible = await verificarCupoMujer();
+    if (!cupoDisponible) {
+      Swal.fire({
+        title: "Cupo lleno",
+        text: "El registro para Mujer Inmobiliaria ya no está disponible.",
+        icon: "warning",
+        confirmButtonColor: "#5B21B6"
+      });
+      return;
+    }
+  
     const form = e.target;
     const data = new FormData(form);
-
-    // Mostrar loader antes del envío
+  
     Swal.fire({
       title: 'Enviando...',
       html: 'Por favor espera mientras enviamos tu registro.',
       allowOutsideClick: false,
       showConfirmButton: false,
-      didOpen: () => {
-        Swal.showLoading();
-      }
+      didOpen: () => Swal.showLoading()
     });
-
+  
     try {
       const res = await fetch(form.action, {
         method: "POST",
         body: data
       });
-
+  
       const text = await res.text();
-
+  
       Swal.fire({
         title: "¡Gracias!",
-        text: text || "Tu registro fue enviado correctamente.",
+        text: text,
         icon: "success",
         confirmButtonText: "Cerrar",
         confirmButtonColor: "#5B21B6"
       });
-
+  
       form.reset();
+      verificarCupoMujer(); // refresca cupo
     } catch (error) {
-      console.error(error);
       Swal.fire({
         title: "Error",
-        text: "Hubo un problema al enviar tu registro. Intenta nuevamente.",
+        text: "Hubo un problema al enviar tu registro.",
         icon: "error"
       });
     }
   });
-</script>
+  </script>
+  
 
+
+
+  
 
   </body>
 </html>
