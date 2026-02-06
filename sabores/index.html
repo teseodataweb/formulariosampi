@@ -100,7 +100,7 @@
 
             <form
               id="form-sabores"
-              action="https://script.google.com/macros/s/AKfycbys2qDCiSDptjhU5sPZIDcrkaVg9ZRNtbGZTeTMcD8MiKjovaXnRQU_7c8y4HL6BOcLgg/exec"
+              action="https://script.google.com/macros/s/AKfycbyWfv18hwx0FdFoyOctno2J9llTIWaaTq6xjYRHM0rrs06zVrogIm6fJEjHEevVSFm25Q/exec"
               method="POST"
               class="grid grid-cols-1 gap-[30px] text-[16px] w-full"
             >
@@ -368,7 +368,7 @@
 
 <!-- Formulario Sabores AMPI con verificación de cupo -->
 <script>
-  const SABORES_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbys2qDCiSDptjhU5sPZIDcrkaVg9ZRNtbGZTeTMcD8MiKjovaXnRQU_7c8y4HL6BOcLgg/exec";
+  const SABORES_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyWfv18hwx0FdFoyOctno2J9llTIWaaTq6xjYRHM0rrs06zVrogIm6fJEjHEevVSFm25Q/exec";
   const formSabores = document.querySelector('#form-sabores');
   const submitBtnSabores = formSabores.querySelector('button[type="submit"]');
 
@@ -388,7 +388,7 @@
 
         Swal.fire({
           title: 'Cupo Agotado',
-          html: `Lo sentimos, el evento <strong>Sabores AMPI</strong> ha alcanzado su límite de <strong>${data.maxCapacity}</strong> registros.<br><br>Te invitamos a estar pendiente de nuestros próximos eventos.`,
+          html: `Lo sentimos, el evento <strong>Sabores AMPI</strong> ha alcanzado su límite de registros.<br><br>Te invitamos a estar pendiente de nuestros próximos eventos.`,
           icon: 'warning',
           confirmButtonText: 'Entendido',
           confirmButtonColor: '#5B21B6'
